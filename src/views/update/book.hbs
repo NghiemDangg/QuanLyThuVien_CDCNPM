@@ -1,0 +1,81 @@
+<main>
+    <div class="container">
+        <div class="form-wrapper">
+            {{#with book}}
+            <form
+                action="/update-book"
+                method="post"
+                autocomplete="off"
+                enctype="multipart/form-data"
+            >
+                <div class="row">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label for="bookid">Id sách</label>
+                            <input type="text" name="bookid" id="bookid" value="{{bookid}}"/>
+                        </div>
+                        <div class="input-group">
+                            <label for="bookName">Tên Sách</label>
+                            <input type="text" name="bookName" id="bookName" value="{{bookName}}"/>
+                        </div>
+                        <div class="input-group">
+                            <label for="bookCategory">Thể Loại</label>
+                            <input
+                                type="text"
+                                name="bookCategory"
+                                id="bookCategory"
+                                value="{{bookCategory}}"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label for="author">Tác giả</label>
+                            <input type="text" name="author" id="author" value="{{author}}"/>
+                        </div>
+                        <div class="input-group">
+                            <label for="publicationDate">Ngày xuất bản</label>
+                            <input
+                                type="date"
+                                name="publicationDate"
+                                id="publicationDate"
+                                value="{{publicationDate}}"
+                            />
+                        </div>
+                        <div class="input-group">
+                            <label for="amount">Số Lượng</label>
+                            <input type="text" name="amount" id="amount" value="{{amount}}"/>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label for="bookThumbnail">Hình Ảnh</label>
+                            <input
+                                type="file"
+                                name="bookThumbnail"
+                                id="bookThumbnail"
+                            />
+                        </div>
+                        <div class="img-container" >
+                            <img src="{{bookThumbnail}}" alt="" style="width: 150px;" >
+                        </div>
+                    </div>
+                    <div class="button-wrapper">
+                        <a
+                            href="/admin/book"
+                            type="submit"
+                            id="btn-back"
+                            class="button"
+                        >Quản Lý Sách</a>
+                        <button id="btn-create" class="button">
+                            Cập nhật
+                        </button>
+                    </div>
+                </div>
+            </form>
+            {{/with}}
+        </div>
+    </div>
+</main>

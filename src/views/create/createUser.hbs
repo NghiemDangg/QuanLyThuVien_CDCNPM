@@ -1,0 +1,97 @@
+<main>
+    <div class="container">
+        <div class="form-wrapper">
+            <form id = "form-create-user" action="/create/new-user" method="post" autocomplete="off">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="userid">Id Đọc Giả</label>
+                            <input 
+                                type="text" 
+                                name="userid" 
+                                id="userid" 
+                                class="input-box"
+                                rules="required|min4_6"
+                            />
+                            <span id="error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="personName">Tên Đọc Giả</label>
+                            <input
+                                type="text"
+                                name="personName"
+                                id="personName"
+                                class="input-box"
+                                rules="required|nonSpecialValue"
+                            />
+                            <span id="error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Điện Thoại</label>
+                            <input 
+                                type="text" 
+                                name="phone" 
+                                id="phone" 
+                                class="input-box"
+                                rules="required|nonSpecialValue"
+                            />
+                            <span id="error"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="location">Địa Chỉ</label>
+                            <input 
+                                type="text" 
+                                name="location" 
+                                id="location" 
+                                class="input-box"
+                                rules="required|nonSpecialValue"
+                            />
+                            <span id="error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Tên Tài Khoản</label>
+                            <input 
+                                type="text" 
+                                name="username" 
+                                id="username" 
+                                class="input-box"
+                                rules="required|nonSpecialValue"
+                            />
+                            <span id="error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Mật Khẩu</label>
+                            <input
+                                type="password"
+                                name="password"
+                                id="password"
+                                class="input-box"
+                            rules="required|nonSpecialValue"    
+                            />
+                            <span id="error"></span>
+                        </div>
+                    </div>
+
+                    <div class="button-wrapper">
+                        <a
+                            href="/admin/user"
+                            type="submit"
+                            id="btn-back"
+                            class="button"
+                        >Danh Sách Đọc Giả</a>
+                        <button id="btn-create" class="button">
+                            Tạo Đọc Giả Mới
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+<script>
+      Validator("#form-create-user");
+    </script>

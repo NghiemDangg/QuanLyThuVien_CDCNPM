@@ -1,0 +1,116 @@
+<main>
+    <div class="container">
+        <div class="form-wrapper">
+            <form
+                action="/create/new-book"
+                method="post"
+                autocomplete="off"
+                enctype="multipart/form-data"
+                id="form-book"
+            >
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="bookid">Id sách</label>
+                            <input 
+                                type="text" 
+                                name="bookid" 
+                                id="bookid" 
+                                class="input-box"
+                                rules="required|nonSpecialValue"
+                            />
+                            <span id="error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="bookName">Tên Sách</label>
+                            <input 
+                                type="text" 
+                                name="bookName" 
+                                id="bookName" 
+                                class="input-box"
+                                rules="required|nonSpecialValue"
+                            />
+                            <span id="error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="bookCategory">Thể Loại</label>
+                            <input
+                                type="text"
+                                name="bookCategory"
+                                id="bookCategory"
+                                class="input-box"
+                                rules="required|nonSpecialValue"
+                            />
+                            <span id="error"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="author">Tác giả</label>
+                            <input 
+                                type="text" 
+                                name="author" 
+                                id="author" 
+                                class="input-box"
+                                rules="required|nonSpecialValue"
+                            />
+                            <span id="error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="publicationDate">Ngày xuất bản</label>
+                            <input
+                                type="date"
+                                name="publicationDate"
+                                id="publicationDate"
+                                class="input-box"
+                                rules="required"
+                            />
+                            <span id="error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="amount">Số Lượng</label>
+                            <input 
+                                type="text" 
+                                name="amount" 
+                                id="amount" 
+                                class="input-box"
+                                rules="required|number"
+                            />
+                            <span id="error"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="bookThumbnail">Hình Ảnh</label>
+                            <input
+                                type="file"
+                                name="bookThumbnail"
+                                id="bookThumbnail"
+                                class="input-box"
+                                rules="required"    
+                            />
+                            <span id="error"></span>
+                        </div>
+                    </div>
+                    <div class="button-wrapper">
+                        <a
+                            href="/admin/book"
+                            type="submit"
+                            id="btn-back"
+                            class="button"
+                        >Quản Lý Sách</a>
+                        <button id="btn-create" class="button">
+                            Tạo Sách Mới
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+<script>
+      Validator("#form-book");
+    </script>

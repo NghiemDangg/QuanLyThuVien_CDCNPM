@@ -1,0 +1,90 @@
+<div class="container">
+    <div class="content-header">
+        <h1 class="heading">Danh Sách Đọc Giả</h1>
+        <div class="d-flex justify-content-between">
+            <div class="search-bar">
+                <input type="text" placeholder="Search Users" onkeyup="onSearch()"/>
+                <button class="search-btn"><i
+                        class="bi bi-search"
+                    ></i></button>
+            </div>
+            <a href="/create/user">
+                <div
+                    class="createUser-btn d-flex justify-content-evenly align-items-center"
+                >
+                    <i class="bi bi-person-plus-fill"></i>
+                    <div class="title">Thêm Người Dùng</div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-dark table-striped" id="user-list"></table>
+    </div>
+</div>
+
+<script>
+    const $ = document.querySelector.bind(document);
+    const $$ = document.querySelectorAll.bind(document);
+
+    const list = [
+    {{#each dataUser}}
+        {
+            userid: "{{userid}}",
+            personName: "{{personName}}",
+            phone: "{{phone}}",
+            location: "{{location}}",
+        },
+    {{/each}}
+    ]
+    const render = list.map((item) =>{
+        return `
+            <tr>
+                <td scope="row">${item.userid}</td>
+                <td>${item.personName}</td>
+                <td>${item.phone}</td>
+                <td>${item.location}</td>
+                <td>
+                    <div class="option-item">
+                        <a href="/update/user/${item.userid}"><i class="bi bi-pencil-square edit"></i></a>
+                        <a href="/delete/user/${item.userid}"><i class="bi bi-trash3 delete" onclick="return confirm('Bạn có chắc muốn xóa người dùng này?');"></i></a>
+                    </div>
+                </td>
+            </tr>
+        `
+    })
+
+    render.unshift(
+        `
+            <tr>
+                <th scope="col">Mã Đọc Giả</th>
+                <th scope="col">Họ và Tên</th>
+                <th scope="col">Điện Thoại</th>
+                <th scope="col">Địa Chỉ</th>
+                <th scope="col">Chức Năng</th>
+            </tr>
+        `
+    )
+
+    $("table").innerHTML =  render.join("")
+
+    const onSearch = () => {
+        const filter = $('input').value.toUpperCase()
+        tr = $('table').getElementsByTagName('tr')
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0]
+            if (td) {
+            txtValue = td.innerText
+            index = txtValue.toUpperCase().indexOf(filter)
+            if (index > -1) {
+                tr[i].style.display = "";
+                console.log(txtValue.substring(0, index));
+                td.innerHTML = txtValue.substring(0, index) + "<span class='highlight'>" + txtValue.substring(index,index+filter.length) + "</span>" + txtValue.substring(index + filter.length);
+            } else {
+                tr[i].style.display = "none";
+            }
+            }       
+        } 
+    }
+</script>

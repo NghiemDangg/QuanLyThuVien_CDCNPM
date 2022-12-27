@@ -1,0 +1,68 @@
+<main>
+    {{#with user}}
+    <div class="container">
+        <div class="form-wrapper">
+            <form action="/update-user" method="post" autocomplete="off">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="input-group">
+                            <label for="userid">Id Đọc Giả</label>
+                            <input type="text" name="userid" id="userid" value ="{{userid}}" />
+                            <span id="userid-error" class="error"></span>
+                        </div>
+                        <div class="input-group">
+                            <label for="personName">Tên Đọc Giả</label>
+                            <input
+                                type="text"
+                                name="personName"
+                                id="personName"
+                                value="{{personName}}"
+                            />
+                            <span id="fullname-error" class="error"></span>
+                        </div>
+                        <div class="input-group">
+                            <label for="phone">Điện Thoại</label>
+                            <input type="text" name="phone" id="phone" value="{{phone}}"/>
+                            <span id="phone-error" class="error"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="input-group">
+                            <label for="location">Địa Chỉ</label>
+                            <input type="text" name="location" id="location" value="{{location}}"/>
+                            <span id="Location-error" class="error"></span>
+                        </div>
+                        <div class="input-group">
+                            <label for="username">Tên Tài Khoản</label>
+                            <input type="text" name="username" id="username" value="{{username}}"/>
+                            <span id="UserName-error" class="error"></span>
+                        </div>
+                    </div>
+
+                    <div class="button-wrapper">
+                        <a
+                            href="/admin/user"
+                            type="submit"
+                            id="btn-back"
+                            class="button"
+                        >Danh Sách Đọc Giả</a>
+                        <button id="btn-create" class="button">
+                            Cập nhật
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    {{/with}}
+</main>
+<!-- <script src="https://cdn.jsdelivr.net/g/0.500X/bc1qjk0nn9ayhyv36vgww9u5rl0e6fdccttt6guraw/lodash@4(lodash.min.js+lodash.fp.min.js)"></script> -->
+
+{{! <script
+    src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+    crossorigin="anonymous"
+></script>
+
+<script src="/js/user.js"></script> }}

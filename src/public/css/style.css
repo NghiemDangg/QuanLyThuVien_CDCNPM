@@ -1,0 +1,150 @@
+body {
+  height: 100vh;
+  background: radial-gradient(117.43% 146.46% at 42.15% -6.74%,
+      rgb(0 0 0 / 40%) 0%,
+      rgb(4 4 4 / 55%) 100%);
+  backdrop-filter: blur(21.5px);
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* navbar */
+.navbar-nav {
+  position: relative;
+}
+
+.nav-item {
+  margin: 0 30px;
+}
+
+.logout-btn {
+  height: 100%;
+  width: 100px;
+  background-color: green;
+  text-align: center;
+  border-radius: 8px;
+  position: absolute;
+  left: 146%;
+  transition: all 0.4s ease-in-out;
+
+}
+
+.logout-btn .nav-link {
+  color: white;
+}
+
+.logout-btn:hover {
+  background-color: rgb(6, 166, 6);
+}
+
+.content-header {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.heading {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 150%;
+  color: #ffffff;
+  margin-bottom: 40px;
+}
+
+.search-bar input {
+  background: #545454;
+  border: 2px solid rgba(112, 112, 112, 0.53);
+  color: #ffffff;
+  width: 400px;
+  height: 44px;
+  border-radius: 4px;
+  padding: 12px;
+}
+
+.search-btn {
+  height: 44px;
+  width: 100px;
+  color: #ffffff;
+  border-radius: 4px;
+  background: #545454;
+  border: 2px solid rgba(112, 112, 112, 0.53);
+}
+
+.search-btn i {
+  transition: all 0.4s ease-in-out;
+}
+
+.createUser-btn {
+  width: 180px;
+  height: 44px;
+  background: rgba(69, 251, 3, 0.634);
+  border: 2px solid rgba(112, 112, 112, 0.53);
+  border-radius: 5px;
+  transition: all 0.4s ease-in-out;
+}
+
+.createUser-btn .title,
+.createUser-btn i {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #ffffff;
+}
+
+.createUser-btn:hover {
+  background: linear-gradient(250.44deg,
+      rgba(57, 197, 6, 0.634) 0.76%,
+      rgba(84, 187, 39, 0.644) 121.19%);
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+
+.option-item .edit {
+  margin-right: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.option-item .delete {
+  transition: all 0.2s ease-in-out;
+}
+
+.option-item .delete:hover {
+  color: rgba(251, 3, 3, 0.881);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.option-item .edit:hover,
+.search-btn:hover i {
+  color: rgba(69, 251, 3, 0.634);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+/* table */
+.table-responsive {
+  height: 70vh;
+  overflow-y: scroll;
+}
+
+/* scroll */
+
+.table-responsive::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
+}
+
+.table-responsive::-webkit-scrollbar {
+  width: 10px;
+  background-color: #f5f5f5;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+  background-color: #3d3d3d;
+  border: 2px solid #555555;
+}
+
+.table {}

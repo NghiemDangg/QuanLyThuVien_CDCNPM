@@ -1,0 +1,133 @@
+<div class="container">
+    <div class="content-header">
+        <h1 class="heading">Quản Lý Sách</h1>
+        <div class="d-flex justify-content-between">
+            <div class="search-bar">
+                <input type="text" placeholder="Search Users" onkeyup="onSearch()"/>
+                <button class="search-btn"><i
+                        class="bi bi-search"
+                    ></i></button>
+            </div>
+            <a href="/create/book">
+                <div
+                    class="createUser-btn d-flex justify-content-evenly align-items-center"
+                >
+                    <i class="bi bi-person-plus-fill"></i>
+                    <div class="title">Thêm Sách Mới</div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-dark table-striped" id="user-list"></table>
+    </div>
+</div>
+
+<script>
+    function format(inputDate1, id) {
+        console.log(typeof(inputDate1));
+        inputDate = new Date(inputDate1)
+        let date, month, year;
+
+        date = inputDate.getDate();
+        month = inputDate.getMonth() + 1;
+        year = inputDate.getFullYear();
+
+            date = date
+                .toString()
+                .padStart(2, '0');
+
+            month = month
+                .toString()
+                .padStart(2, '0');
+
+        let day = `${date}/${month}/${year}`;
+        
+        document.getElementById(id).innerText = day
+    }
+    
+    const $ = document.querySelector.bind(document);
+    const $$ = document.querySelectorAll.bind(document);
+
+    const list = [
+    {{#each bookData}}
+        {
+            bookid: "{{bookid}}",
+            bookName: "{{bookName}}",
+            bookThumbnail: "{{bookThumbnail}}",
+            bookCategory: "{{bookCategory}}",
+            publicationDate: "{{publicationDate}}",
+            author: "{{author}}",
+            amount: "{{amount}}",
+        },
+    {{/each}}
+    ]
+    let i = 0
+    const render = list.map((item) =>{
+        return `
+            <tr class="">
+                <td scope="row">${item.bookid}</td>
+                <td>${item.bookName}</td>
+                <td>
+                    <img
+                        class="book-thumbnail"
+                        src=${item.bookThumbnail}
+                        alt=""
+                    />
+                </td>
+                <td>${item.bookCategory}</td>
+                <td>${item.author}</td>
+                <td id="pDate${i++}"></td>
+                <td>${item.amount}</td>
+                <td>
+                    <div class="option-item">
+                        <a href="/update/book/${item.bookid}"><i class="bi bi-pencil-square edit"></i></a>
+                        <a href="/delete/book/${item.bookid}"><i class="bi bi-trash3 delete" onclick="return confirm('Bạn chắc chắn muốn xóa sách này?');"></i></a>
+                    </div>
+                </td>
+            </tr>
+        `
+    })
+
+
+
+    render.unshift(
+        `
+            <tr>
+                <th scope="col">ID Sách</th>
+                <th scope="col">Tên Sách</th>
+                <th scope="col">Hình Ảnh</th>
+                <th scope="col">Thể Loại</th>
+                <th scope="col">Tác Giả</th>
+                <th scope="col">NXB</th>
+                <th scope="col">Số Lượng</th>
+                <th scope="col">Chức Năng</th>
+            </tr>
+        `
+    )
+
+    $("table").innerHTML =  render.join("")
+
+    for (let j = 0 ; j < i ; j++) {
+        format(`${list[j].publicationDate}`, `pDate${j}`)
+    }
+    const onSearch = () => {
+        const filter = $('input').value.toUpperCase()
+        tr = $('table').getElementsByTagName('tr')
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0]
+            if (td) {
+            txtValue = td.innerText
+            index = txtValue.toUpperCase().indexOf(filter)
+            if (index > -1) {
+                tr[i].style.display = "";
+                console.log(txtValue.substring(0, index));
+                td.innerHTML = txtValue.substring(0, index) + "<span class='highlight'>" + txtValue.substring(index,index+filter.length) + "</span>" + txtValue.substring(index + filter.length);
+            } else {
+                tr[i].style.display = "none";
+            }
+            }       
+        } 
+    }
+</script>
